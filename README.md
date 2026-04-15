@@ -23,8 +23,8 @@ We use [cross-entropy](https://en.wikipedia.org/wiki/Cross-entropy) with 4 class
 
 FSRS-7 is optimized in the same way as in [the main benchmark](https://github.com/open-spaced-repetition/srs-benchmark), to predict binary pass/fail probability of recall (`R` for short). Both methods rely on FSRS-7.
 
-1) method1: historical usage rates of Hard/Good/Easy are estimated. Then `p(Again)=1-R`, `p(Hard)=R*p(Hard|pass)`, `p(Good)=R*p(Good|pass)`, `p(Easy)=R*p(Easy|pass)`. Pass means "Hard, Good or Easy", `p(Hard|pass) + p(Good|pass) + p(Easy|pass) = 1`. This is a simple method that assumes that lower/higher probability of recall doesn't affect how likely the user is to press Hard or Easy.
-2) method2: 8 parameters are estimated from user's data. They define how p(Hard|pass) and p(Easy|pass) depend on R. As R increases, p(Hard|pass) decreases and p(Easy|pass) increases. This is a more sophisticated method that takes into account that how likely the user is to press Hard/Good/Easy depends on the probability of recall. At lower R recall requires more effort, so Hard becomes more likely. At higher R recall requires less effort, so Easy becomes more likely.
+1) method1: historical usage rates of Hard/Good/Easy are estimated from user's review history. Then `p(Again)=1-R`, `p(Hard)=R*p(Hard|pass)`, `p(Good)=R*p(Good|pass)`, `p(Easy)=R*p(Easy|pass)`. Pass means "Hard, Good or Easy", `p(Hard|pass) + p(Good|pass) + p(Easy|pass) = 1`. This is a simple method that assumes that lower/higher probability of recall doesn't affect how likely the user is to press Hard or Easy.
+2) method2: 8 parameters are estimated from user's review history. They define how p(Hard|pass) and p(Easy|pass) depend on R. As R increases, p(Hard|pass) decreases and p(Easy|pass) increases. This is a more sophisticated method that takes into account that how likely the user is to press Hard/Good/Easy depends on the probability of recall. At lower R recall requires more effort, so Hard becomes more likely. At higher R recall requires less effort, so Easy becomes more likely.
 
 
 ## Result
